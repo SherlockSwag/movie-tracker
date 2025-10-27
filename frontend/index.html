@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Movie & TV Show Tracker</title>
+    <title>Movie & TV Show Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,9 +12,9 @@
         <div class="container">
             <header>
                 <h1>🎬 Movie & TV Show Tracker</h1>
-                <p class="subtitle">Track what you want to watch and what you've already seen</p>
+                <p class="subtitle">Track what you want to watch and what you've seen</p>
                 <div class="header-actions">
-                    <button onclick="importExportManager.showImportExportModal()" class="settings-btn">
+                    <button onclick="importExportManager.showModal()" class="settings-btn">
                         ⚙️ Backup & Restore
                     </button>
                 </div>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="input-field">
                             <label>&nbsp;</label>
-                            <button onclick="searchTMDB()">Search TMDB</button>
+                            <button onclick="tmdbService.searchTMDB()">Search TMDB</button>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             
-            <!-- Search & Filter Section -->
+            <!-- Search & Filter Bar -->
             <div class="search-filter-bar">
                 <div class="search-filter-group" style="flex: 2;">
                     <input type="text" id="globalSearch" placeholder="🔍 Search titles..." class="search-input">
@@ -76,7 +76,11 @@
                         <option value="all">All Genres</option>
                         <option value="action">Action</option>
                         <option value="adventure">Adventure</option>
-                        <!-- ... other genres ... -->
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="horror">Horror</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                        <option value="thriller">Thriller</option>
                     </select>
                 </div>
                 
@@ -90,7 +94,7 @@
                     </select>
                 </div>
                 
-                <button onclick="clearAllFilters()" class="clear-filters-btn" title="Clear all filters">
+                <button onclick="filterManager.clearAllFilters()" class="clear-filters-btn">
                     🗑️ Clear
                 </button>
             </div>
@@ -126,13 +130,11 @@
     <!-- Detail Page -->
     <div id="detailPage" class="page" style="display: none;">
         <div class="container">
-            <div id="detailContent">
-                <!-- Detail content will be loaded here by router -->
-            </div>
+            <div id="detailContent"></div>
         </div>
     </div>
 
-    <!-- Keep existing modals for now -->
+    <!-- Modals -->
     <div id="episodeModal" class="episode-modal">
         <div class="modal-content">
             <div id="episodeModalContent"></div>
@@ -153,18 +155,12 @@
 
     <!-- Scripts -->
     <script src="js/config.js"></script>
-    <script src="js/eventBus.js"></script>
-    <script src="js/errorHandler.js"></script>
-    <script src="js/performance.js"></script>
-    <script src="js/apiService.js"></script>
-    <script src="js/stateManager.js"></script>
     <script src="js/dataManager.js"></script>
     <script src="js/tmdbService.js"></script>
     <script src="js/uiManager.js"></script>
     <script src="js/filterManager.js"></script>
     <script src="js/episodeManager.js"></script>
     <script src="js/importExport.js"></script>
-    <script src="js/router.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
