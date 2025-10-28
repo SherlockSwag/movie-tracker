@@ -15,7 +15,6 @@ class MovieTrackerApp {
     async init() {
         // Initialize managers
         window.apiClient = new ApiClient();
-        window.dataManager = window.apiClient();
         window.tmdbService = new TMDBService();
         window.uiManager = new UIManager();
         window.filterManager = new FilterManager();
